@@ -1,0 +1,6 @@
+<button (click)="getPublicData()">test public</button>
+<button (click)="getPrivateData()">test privé</button>
+<button (click)="register()">register</button>
+<button (click)="login()">login</button>
+<button (click)="logout()">logout</button>
+<div *ngIf="responseCall.length > 0">{{responseCall}}</div>
