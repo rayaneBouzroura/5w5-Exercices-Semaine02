@@ -1,9 +1,10 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TokenInterceptor } from './http-interceptor/token-interceptor';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AppComponent } from './app.component';
 
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    {provide : HTTP_INTERCEPTORS , useClass : TokenInterceptor , multi : true}
   ],
   bootstrap: [AppComponent]
 })

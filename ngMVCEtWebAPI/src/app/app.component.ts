@@ -41,11 +41,8 @@ export class AppComponent {
     console.log("getPrivateData");
     try {
 
-      const token = sessionStorage.getItem("token");
-      const headers = new HttpHeaders({
-        'Authorization': `Bearer ${token}`
-      })
-      const response = await lastValueFrom(this.http.get('https://localhost:7154/api/Account/PrivateTest',{headers:headers}));
+
+      const response = await lastValueFrom(this.http.get('https://localhost:7154/api/Account/PrivateTest'));
       console.log(response);
       this.responseCall = response as String[];
     } catch (err) {
