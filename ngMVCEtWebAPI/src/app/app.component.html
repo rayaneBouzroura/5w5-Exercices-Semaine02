@@ -1,6 +1,11 @@
-<button (click)="getPublicData()">test public</button>
-<button (click)="getPrivateData()">test privé</button>
-<button (click)="register()">register</button>
-<button (click)="login()">login</button>
-<button (click)="logout()">logout</button>
-<div *ngIf="responseCall.length > 0">{{responseCall}}</div>
+<div style="border: 1px solid black;margin: 20px;">
+  <button (click)="register()">register</button>
+  <button (click)="login()">login</button>
+  <div><button (click)="logout()">logout</button></div>
+</div>
+
+<div style="margin: 20px;">
+  <button (click)="getPublicData()">test public</button>
+  <button (click)="getPrivateData()">test privé</button>
+</div>
+<div *ngIf="responseCall.length > 0" style="margin: 10px;">{{responseCall}}</div>
