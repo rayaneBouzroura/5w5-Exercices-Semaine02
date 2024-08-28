@@ -8,6 +8,8 @@ import { lastValueFrom } from 'rxjs';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+testDataDTO: any;
+
   title = 'ngMVCEtWebAPI';
   loginDto = {
     username : "test",
@@ -20,9 +22,13 @@ export class AppComponent {
     passwordConfirm : "Passw0rd!",
     email : "test"
   };
+  //testDataDTO is an object with just a string called Name
+
 
   uriEndpoint = "https://localhost:7154/api/Account/";
   responseCall : String[]= [];
+  testData : String = "";
+
 
 
 
@@ -79,6 +85,27 @@ export class AppComponent {
   logout(){
     sessionStorage.clear();
   }
+
+  async sendData() {
+
+    try{
+      //create dto object CreateTestDataDTO avec comme seul champ Name
+
+      let CreateTestDataDTO = {
+        Name : this.testData
+      }
+      //
+      const link = "https://localhost:7154/api/TestData";
+      let result = await lastValueFrom(this.http.post(link,CreateTestDataDTO));
+      console.log(result);
+
+
+    }
+    catch(err){
+      console.log(err);
+    }
+
+    }
 
 
 

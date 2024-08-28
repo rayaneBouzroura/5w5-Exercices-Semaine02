@@ -1,4 +1,15 @@
 <div style="border: 1px solid black;margin: 20px;">
+    <h2>Ajouter des datatata</h2>
+    <form (submit)="sendData()">
+    <input type="text" name="testData" [(ngModel)]="testData">
+    <button type="submit">Envoyer</button>
+    </form>
+
+
+</div>
+
+
+<div style="border: 1px solid black;margin: 20px;">
   <button (click)="register()">register</button>
   <button (click)="login()">login</button>
   <div><button (click)="logout()">logout</button></div>
